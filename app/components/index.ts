@@ -8,6 +8,8 @@ import MenuItem from "./Navbar/MenuItem";
 import Modal from "./modals/Modal";
 import Button from "./Button";
 import RegisterModal from "./modals/RegisterModal";
+import Heading from "./Heading";
+import Input from "./inputs/Input";
 
 export {
   Container,
@@ -20,4 +22,6 @@ export {
   Modal,
   Button,
   RegisterModal,
+  Heading,
+  Input,
 };

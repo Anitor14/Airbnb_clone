@@ -8,8 +8,8 @@ type ModalProps = {
   onClose: () => void;
   onSubmit: () => void;
   title?: string;
-  body?: string;
-  footer?: React.ReactElement;
+  body?: React.ReactNode;
+  footer?: React.ReactNode;
   actionLabel: string;
   disabled?: boolean;
   secondaryAction?: () => void;
@@ -84,7 +84,7 @@ const Modal = ({
                     absolute
                     left-9
                   "
-                  onClick={() => {}}
+                  onClick={handleClose}
                 >
                   <IoMdClose size={18} />
                 </button>
@@ -110,6 +110,7 @@ const Modal = ({
                     onClick={handleSubmit}
                   />
                 </div>
+                {footer}
               </div>
             </div>
           </div>

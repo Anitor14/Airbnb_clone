@@ -8,7 +8,7 @@ type RegisterModalStore = {
 
 const useRegisterModal = create<RegisterModalStore>((set) => ({
   isOPen: false,
-  onOPen: () => set({ isOPen: false }),
+  onOPen: () => set({ isOPen: true }),
   onClose: () => set({ isOPen: false }),
 }));
 
