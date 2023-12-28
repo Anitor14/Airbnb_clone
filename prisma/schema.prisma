@@ -12,7 +12,7 @@ datasource db {
 }
 
 model User {
-  id   String @id @default(uuid()) @db.Uuid
+  id   String @id @default(uuid()) 
   name String?
   email String? @unique
   emailVerified DateTime?
@@ -20,7 +20,7 @@ model User {
   hashedPassword String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  favoriteIds String[] @db.Uuid
+  favoriteIds String[] 
 
   accounts Account[]
   listings Listing[]
@@ -28,27 +28,27 @@ model User {
 }
 
 model Account {
-  id                String  @id @default(uuid()) @db.Uuid
-  userId            String  @db.Uuid
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String 
-  access_token      String  
-  expires_at        Int?
-  token_type        String?
-  scope             String?   
-  id_token          String
-  session_state     String?     
+  id                 String  @id @default(uuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  
+  access_token       String?  
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  
+  session_state      String?
 
-  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
 
 model Listing {
-  id   String @id @default(uuid()) @db.Uuid
-  userId  String @db.Uuid  
+  id   String @id @default(uuid()) 
+  userId  String   
   title String
   description String
   imageSrc String
@@ -64,9 +64,9 @@ model Listing {
 }
 
 model Reservation {
-  id   String @id @default(uuid()) @db.Uuid
-  userId  String @db.Uuid 
-  listingId  String @db.Uuid 
+  id   String @id @default(uuid()) 
+  userId  String  
+  listingId  String  
   startDate DateTime
   endDate DateTime
   totalPrice Int
