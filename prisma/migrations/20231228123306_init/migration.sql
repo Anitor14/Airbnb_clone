@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "User" (
-    "id" UUID NOT NULL,
+    "id" TEXT NOT NULL,
     "name" TEXT,
     "email" TEXT,
     "emailVerified" TIMESTAMP(3),
@@ -8,20 +8,20 @@ CREATE TABLE "User" (
     "hashedPassword" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
-    "favoriteIds" UUID[],
+    "favoriteIds" TEXT[],
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Account" (
-    "id" UUID NOT NULL,
-    "userId" UUID NOT NULL,
+    "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
     "type" TEXT NOT NULL,
     "provider" TEXT NOT NULL,
     "providerAccountId" TEXT NOT NULL,
-    "refresh_token" TEXT NOT NULL,
-    "access_token" TEXT NOT NULL,
+    "refresh_token" TEXT,
+    "access_token" TEXT,
     "expires_at" INTEGER,
     "token_type" TEXT,
     "scope" TEXT,
@@ -33,8 +33,8 @@ CREATE TABLE "Account" (
 
 -- CreateTable
 CREATE TABLE "Listing" (
-    "id" UUID NOT NULL,
-    "userId" UUID NOT NULL,
+    "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
     "title" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "imageSrc" TEXT NOT NULL,
@@ -50,9 +50,9 @@ CREATE TABLE "Listing" (
 
 -- CreateTable
 CREATE TABLE "Reservation" (
-    "id" UUID NOT NULL,
-    "userId" UUID NOT NULL,
-    "listingId" UUID NOT NULL,
+    "id" TEXT NOT NULL,
+    "userId" TEXT NOT NULL,
+    "listingId" TEXT NOT NULL,
     "startDate" TIMESTAMP(3) NOT NULL,
     "endDate" TIMESTAMP(3) NOT NULL,
     "totalPrice" INTEGER NOT NULL,
