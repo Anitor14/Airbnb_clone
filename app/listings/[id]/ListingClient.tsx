@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Reservation } from "@prisma/client";
 import { toast } from "react-hot-toast";
+import { Range } from "react-date-range";
 
 import { SafeListing, SafeUser } from "@/app/types";
 
@@ -18,6 +19,7 @@ import {
   eachDayOfInterval,
 } from "date-fns";
 import axios from "axios";
+import ListingReservation from "@/app/components/listings/ListingReservation";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -52,7 +54,7 @@ const ListingClient = ({ reservations = [], listing, currentUser }: Props) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(listing.price);
-  const [dateRange, setDateRange] = useState(initialDateRange);
+  const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
   const onCreateReservations = useCallback(async () => {
     if (!currentUser) {
@@ -116,6 +118,17 @@ const ListingClient = ({ reservations = [], listing, currentUser }: Props) => {
               bathroomCount={listing.bathroomCount}
               locationValue={listing.locationValue}
             />
+            <div className="order-first mb-10 md:order-last md:col-span-3">
+              <ListingReservation
+                price={listing.price}
+                totalPrice={totalPrice}
+                onChangeDate={(value) => setDateRange(value)}
+                dateRange={dateRange}
+                onSubmit={onCreateReservations}
+                disabled={isLoading}
+                disabledDates={disabledDates}
+              />
+            </div>
           </div>
         </div>
       </div>
