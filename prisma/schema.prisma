@@ -57,6 +57,7 @@ model Listing {
   roomCount Int
   bathroomCount Int
   guestCount Int
+  price Int
   locationValue String
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)

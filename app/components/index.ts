@@ -11,6 +11,13 @@ import RegisterModal from "./modals/RegisterModal";
 import Heading from "./Heading";
 import Input from "./inputs/Input";
 import LoginModal from "./modals/LoginModal";
+import Categories from "./Navbar/Categories";
+import CategoryBox from "./CategoryBox";
+import RentModal from "./modals/RentModal";
+import CategoryInput from "./inputs/CategoryInput";
+import CountrySelect from "./inputs/CountrySelect";
+import Map from "./Map";
+import Counter from "./inputs/Counter";
 
 export {
   Container,
@@ -26,4 +33,11 @@ export {
   Heading,
   Input,
   LoginModal,
+  Categories,
+  CategoryBox,
+  RentModal,
+  CategoryInput,
+  CountrySelect,
+  Map,
+  Counter,
 };

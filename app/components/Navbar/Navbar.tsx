@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Logo, Search, UserMenu } from "..";
+import { Container, Logo, Search, UserMenu, Categories } from "..";
 import { SafeUser } from "@/app/types";
 
 type NavbarProps = {
@@ -18,6 +18,7 @@ const Navbar = ({ currentUser }: NavbarProps) => {
           </div>
         </Container>
       </div>
+      <Categories />
     </nav>
   );
 };
