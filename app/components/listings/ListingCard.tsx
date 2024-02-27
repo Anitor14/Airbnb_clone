@@ -32,6 +32,7 @@ const ListingCard = ({
   const location = getByValue(data.locationValue);
   const handleCancel = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
+      // this stops propagation of events to the parent components.
       e.stopPropagation();
       if (disabled) {
         return;
@@ -68,7 +69,7 @@ const ListingCard = ({
             fill
             alt="Listings"
             src={data.imageSrc}
-            className="objec t-cover h-full w-full group-hover:scale-110 transition"
+            className="object-cover h-full w-full group-hover:scale-110 transition"
           />
           <div className="absolute top-3 right-3">
             <HeartButton listingId={data.id} currentUser={currentUser} />

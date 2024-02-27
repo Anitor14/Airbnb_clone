@@ -5,6 +5,7 @@ import EmptyState from "@/app/components/EmptyState";
 import ListingClient from "./ListingClient";
 
 const ListingPage = async ({ params }: { params: { id: string } }) => {
+  // this is a server component where we are fetching the listing and currentUser.
   const listing = await getListingById(params);
   const currentUser = await getCurrentUser();
 
