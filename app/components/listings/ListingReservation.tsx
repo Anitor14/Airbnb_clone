@@ -1,20 +1,21 @@
 "use client";
-import { Range } from "react-date-range";
-import React from "react";
-import Calendar from "../inputs/Calendar";
-import Button from "../Button";
 
-type Props = {
+import { Range } from "react-date-range";
+
+import Button from "../Button";
+import Calendar from "../inputs/Calendar";
+
+interface ListingReservationProps {
   price: number;
   dateRange: Range;
   totalPrice: number;
   onChangeDate: (value: Range) => void;
   onSubmit: () => void;
-  disabled: boolean;
+  disabled?: boolean;
   disabledDates: Date[];
-};
+}
 
-const ListingReservation = ({
+const ListingReservation: React.FC<ListingReservationProps> = ({
   price,
   dateRange,
   totalPrice,
@@ -22,11 +23,22 @@ const ListingReservation = ({
   onSubmit,
   disabled,
   disabledDates,
-}: Props) => {
+}) => {
   return (
-    <div className="bg-white rounded-xl border-[1px] border-neutral-200 overflow-hidden">
-      <div className="flex flex-row items-center gap-1 p-4">
-        <div className="text-2xl font-semibold">${price}</div>
+    <div
+      className="
+      bg-white 
+        rounded-xl 
+        border-[1px]
+      border-neutral-200 
+        overflow-hidden
+      "
+    >
+      <div
+        className="
+      flex flex-row items-center gap-1 p-4"
+      >
+        <div className="text-2xl font-semibold">$ {price}</div>
         <div className="font-light text-neutral-600">night</div>
       </div>
       <hr />
@@ -40,9 +52,19 @@ const ListingReservation = ({
         <Button disabled={disabled} label="Reserve" onClick={onSubmit} />
       </div>
       <hr />
-      <div className="p-4 flex flex-row items-center justify-between font-semibold text-lg">
-        <div className="">Total</div>
-        <div className="">${totalPrice}</div>
+      <div
+        className="
+          p-4 
+          flex 
+          flex-row 
+          items-center 
+          justify-between
+          font-semibold
+          text-lg
+        "
+      >
+        <div>Total</div>
+        <div>$ {totalPrice}</div>
       </div>
     </div>
   );
